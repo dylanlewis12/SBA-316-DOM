@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // =========================
-    // Cache elements
-    // =========================
+// Cache elements
     let body = document.getElementById("documentBody");
-    let header = document.getElementById("header");
+    //let header = document.getElementById("header");
     let numberHeading = document.getElementById("numberHeading");
     let numberGuess = document.getElementById("numberGuess");
     let revealButton = document.getElementById("reveal");
@@ -11,13 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let checkButton = document.getElementById("check");
     let buttons = document.querySelectorAll("button");
 
-    // Use ID selectors for header elements
+// Cache header elements
     let remainingAttemptsEl = document.getElementById("item1");
     let attemptsEl = document.getElementById("item3");
 
-    // =========================
-    // Game variables
-    // =========================
+// Game variables
     const min = 0;
     const max = 50;
     let attempts = 0;
@@ -26,9 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log(secretNumber);
 
-    // =========================
-    // Page styling
-    // =========================
+// Page styling
     body.style.fontFamily = "SuperPixel, sans-serif";
     body.style.backgroundColor = "#202121";
     body.style.color = "white";
@@ -46,14 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
         button.style.border = "3px solid black";
     });
 
-    // Hide reveal button
+// Hide reveal button
     if (revealButton) {
         revealButton.style.display = "none";
     }
 
-    // =========================
-    // Create input wrapper for proper centering
-    // =========================
+// Create input wrapper for proper centering
     const inputWrapper = document.createElement("div");
     inputWrapper.style.display = "flex";
     inputWrapper.style.alignItems = "center";
@@ -235,10 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize attempts display on page load
     updateAttemptsDisplay();
-
-    // =========================
-    // CHECK button logic
-    // =========================
+    
+//check button event listener
     checkButton.addEventListener("click", () => {
         // Check if game is over
         if (remAttempts <= 0 || checkButton.disabled) {
