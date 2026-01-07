@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBA-316</title>
-    <script src="./script.js" defer></script>
-    <style>
-        @font-face {
-        font-family: "SuperPixel";
-        src: url("./styles/fonts/SuperPixel-m2L8j.ttf") format("truetype");
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBA-316</title>
+<script src="./script.js" defer></script>
+<style>
+@font-face {
+font-family: "SuperPixel";
+src: url("./styles/fonts/SuperPixel-m2L8j.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#header {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    background-color: #202121;
+    color: white;
+    font-family: SuperPixel, sans-serif;
+}
+
+#header li {
+    display: block;
+    flex: 1;
+    min-height: 2rem;
+    overflow: visible;
+    white-space: nowrap;
+    color: white;
+    font-family: SuperPixel, sans-serif;
+    font-size: 1rem;
+}
+
+#header li#item1 {
+    text-align: left;
+}
+
+#header li#item2 {
+    text-align: center;
+}
+
+#header li#item3 {
+    text-align: right;
+}
+
+#numberGuess {
+    color: white !important;
+}
+</style>
 </head>
 <body id="documentBody">
-    <ul id="header">
-        <li id="item1">Remaining Attempts: 10</li>
-        <li id="item2">Between 0 and 50</li>
-        <li id="item3">Attempts: 0</li>
-    </ul>
-    <h1 id="numberHeading">Guess the number!</h1>
-
-    <input type="number" id="numberGuess" name="numberGuess" min="0" max="50" placeholder="?"/>
-
-    <button id="reveal" type="button">Reveal</button>
-    <button id="reset" type="button">Reset</button>
-    
+<ul id="header">
+<li id="item1">Remaining Attempts: 10</li>
+<li id="item2">Between 0 and 50</li>
+<li id="item3">Attempts: 0</li>
+</ul>
+<h1 id="numberHeading">Guess the number!</h1>
+<input type="text" id="numberGuess" name="numberGuess" min="0" max="50" inputmode="numeric"/>
+<button id="check" type="button">Check Guess</button>
+<button id="reset" type="button">Reset</button>
 </body>
 </html>
