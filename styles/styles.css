@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+        
+body {
+    font-family: 'Pixelify Sans', monospace;
+    background-color: #202121;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+#header {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    background-color: #202121;
+    color: white;
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.3rem;
+}
+
+#header-item1 {
+    flex: 1;
+    text-align: left;
+    min-width: 200px;
+}
+
+#header-item2 {
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+
+#header-item3 {
+    flex: 1;
+    text-align: right;
+    min-width: 200px;
+}
+
+.divider-line {
+    background: white;
+    height: 2px;
+    width: 100vw;
+    margin: 20px calc(-50vw + 50%);
+    position: relative;
+    left: calc(-50vw + 50%);
+}
+
+#numberGuess {
+    color: white !important;
+    caret-color: white !important;
+    font-family: 'Pixelify Sans', monospace !important;
+    font-size: 3.6rem !important;
+    letter-spacing: 0.2em !important;
+}
+
+#numberGuess::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#numberGuess:-webkit-autofill,
+#numberGuess:-webkit-autofill:hover,
+#numberGuess:-webkit-autofill:focus,
+#numberGuess:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+.mystery-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.6rem;
+    width: 200px;
+    height: 200px;
+    border: 4px solid white;
+    margin: 40px auto 20px auto;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: 'Pixelify Sans', monospace;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    color: black;
+    letter-spacing: 0.2em;
+}
+
+button {
+    font-family: 'Pixelify Sans', monospace;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

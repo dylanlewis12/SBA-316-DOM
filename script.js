@@ -12,114 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Secret number:", secretNumber);
 
-    // Create CSS styles
-    const style = document.createElement("style");
-    style.textContent = `
-        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
-        
-        body {
-            font-family: 'Pixelify Sans', monospace;
-            background-color: #202121;
-            color: white;
-            margin: 0;
-            text-align: center;
-        }
-
-        #header {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            margin: 0;
-            width: 100%;
-            background-color: #202121;
-            color: white;
-            font-family: 'Pixelify Sans', monospace;
-            font-size: 1.3rem;
-        }
-
-        #header-item1 {
-            flex: 1;
-            text-align: left;
-            min-width: 200px;
-        }
-
-        #header-item2 {
-            flex: 1;
-            text-align: center;
-            min-width: 200px;
-        }
-
-        #header-item3 {
-            flex: 1;
-            text-align: right;
-            min-width: 200px;
-        }
-
-        .divider-line {
-            background: white;
-            height: 2px;
-            width: 100vw;
-            margin: 20px calc(-50vw + 50%);
-            position: relative;
-            left: calc(-50vw + 50%);
-        }
-
-        #numberGuess {
-            color: white !important;
-            caret-color: white !important;
-            font-family: 'Pixelify Sans', monospace !important;
-            font-size: 3.6rem !important;
-            letter-spacing: 0.2em !important;
-        }
-
-        #numberGuess::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        #numberGuess:-webkit-autofill,
-        #numberGuess:-webkit-autofill:hover,
-        #numberGuess:-webkit-autofill:focus,
-        #numberGuess:-webkit-autofill:active {
-            -webkit-box-shadow: 0 0 0 30px transparent inset !important;
-            -webkit-text-fill-color: white !important;
-        }
-
-        .mystery-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.6rem;
-            width: 200px;
-            height: 200px;
-            border: 4px solid white;
-            margin: 40px auto 20px auto;
-            box-sizing: border-box;
-            background-color: white;
-            font-family: 'Pixelify Sans', monospace;
-            font-weight: normal;
-            line-height: 1;
-            text-align: center;
-            color: black;
-            letter-spacing: 0.2em;
-        }
-
-        button {
-            font-family: 'Pixelify Sans', monospace;
-            padding: 15px 30px;
-            background-color: white;
-            color: black;
-            margin: 10px;
-            border: 3px solid black;
-            cursor: pointer;
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-    `;
-    document.head.appendChild(style);
-
     // Create header with attempts using DocumentFragment (meets DocumentFragment requirement)
     const header = document.createElement("div");
     header.id = "header";
@@ -387,9 +279,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Correct guess
         if (guess === secretNumber) {
             // Add correct guess to history
-            guessHistory.push({ guess: guess, feedback: "✅ CORRECT!" });
+            guessHistory.push({ guess: guess, feedback: "CORRECT! ✅ " });
             const listItem = document.createElement("li");
-            listItem.textContent = `${guess} - ✅ CORRECT!`;
+            listItem.textContent = `${guess} - CORRECT! ✅`;
             listItem.style.marginBottom = "8px";
             listItem.style.color = "#00ff00";
             guessesList.appendChild(listItem);
@@ -416,9 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 listItem.style.color = "#ff6b6b";
                 guessesList.appendChild(listItem);
             } else if (guess < secretNumber) {
-                guessHistory.push({ guess: guess, feedback: "❌ TOO LOW" });
+                guessHistory.push({ guess: guess, feedback: "TOO LOW ❌" });
                 const listItem = document.createElement("li");
-                listItem.textContent = `${attempts}. ${guess} - ❌ TOO LOW`;
+                listItem.textContent = `${attempts}. ${guess} - TOO LOW ❌ `;
                 listItem.style.marginBottom = "8px";
                 listItem.style.color = "#ff6b6b";
                 guessesList.appendChild(listItem);
@@ -436,16 +328,16 @@ document.addEventListener("DOMContentLoaded", () => {
             // Incorrect guess but game continues
             // Add incorrect guess to history
             if (guess > secretNumber) {
-                guessHistory.push({ guess: guess, feedback: "❌ TOO HIGH" });
+                guessHistory.push({ guess: guess, feedback: "TOO HIGH ❌" });
                 const listItem = document.createElement("li");
-                listItem.textContent = `${guess} - ❌ TOO HIGH`;
+                listItem.textContent = `${guess} - TOO HIGH ❌ `;
                 listItem.style.marginBottom = "8px";
                 listItem.style.color = "#ff6b6b";
                 guessesList.appendChild(listItem);
             } else if (guess < secretNumber) {
-                guessHistory.push({ guess: guess, feedback: "❌ TOO LOW" });
+                guessHistory.push({ guess: guess, feedback: "TOO LOW ❌ " });
                 const listItem = document.createElement("li");
-                listItem.textContent = `${guess} - ❌ TOO LOW`;
+                listItem.textContent = `${guess} - TOO LOW ❌ `;
                 listItem.style.marginBottom = "8px";
                 listItem.style.color = "#ff6b6b";
                 guessesList.appendChild(listItem);
@@ -464,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Reset button - clears input field only
+    // Reset button - clears number guess box
     resetButton.addEventListener("click", () => {
         numberGuess.value = "";
         numberGuess.focus();
